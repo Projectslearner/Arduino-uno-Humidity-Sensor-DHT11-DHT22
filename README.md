@@ -1,58 +1,62 @@
-# Humidity Monitoring with Buzzer Alarm
+# Arduino Uno Humidity Sensor (DHT11)
 
 #### Project Overview
 
-This project utilizes a DHT11 temperature and humidity sensor to monitor the humidity level in the environment. When the humidity drops below 50%, an alarm buzzer is activated to alert the user.
+This project demonstrates how to use a DHT11 humidity sensor with an Arduino Uno to measure the relative humidity in the environment. The sensor provides digital output that is read by the Arduino, and the humidity value is displayed on the serial monitor.
 
 #### Components Needed
 
-1. **Arduino Board**
-2. **DHT11 Temperature and Humidity Sensor**
-3. **Buzzer**
-4. **Resistor (if required for Buzzer)**
-5. **Breadboard**
-6. **Jumper Wires**
+- **Arduino Uno**
+- **DHT11 Humidity Sensor**
+- **Jumper Wires**
+- **Breadboard**
 
-#### Block diagram 
+#### Block diagram
 
 
-#### Circuit Wiring
+#### Circuit Setup
 
-1. **DHT11 Sensor:**
-   - Connect the data pin of the DHT11 sensor to digital pin 2 on the Arduino.
-
-2. **Buzzer:**
-   - Connect the positive terminal of the buzzer to digital pin 5 on the Arduino.
-   - Connect the negative terminal of the buzzer to the ground (GND) pin on the Arduino.
+1. **Connect the DHT11 Humidity Sensor to Arduino Uno:**
+   - **Signal pin of the DHT11 Sensor:** Connect to digital pin 2 on the Arduino Uno.
+   - **Vcc pin of the DHT11 Sensor:** Connect to 5V on the Arduino Uno.
+   - **GND pin of the DHT11 Sensor:** Connect to GND on the Arduino Uno.
 
 #### Instructions
 
-1. **Set Up the Circuit:**
-   - Assemble the circuit according to the wiring instructions.
-   - Ensure all connections are secure and components are correctly placed on the breadboard.
+1. **Circuit Setup:**
+   - Connect the DHT11 humidity sensor to the Arduino Uno as described in the circuit setup section.
 
-2. **Monitor Humidity Levels:**
-   - The DHT11 sensor continuously monitors the humidity level in the environment.
+2. **Library Installation:**
+   - If not already installed, download and install the DHT sensor library in the Arduino IDE. This library provides functions to interact with DHT sensors.
 
-3. **Buzzer Alarm:**
-   - When the humidity drops below 50%, the buzzer alarm is activated.
-   - The buzzer alarm is turned off when the humidity reaches 50% or above.
+3. **Code Upload:**
+   - Open the Arduino IDE and create a new sketch.
+   - Copy and paste the provided Arduino code into the sketch.
+
+4. **Testing:**
+   - Upload the code to the Arduino Uno.
+   - Open the serial monitor with a baud rate of 9600.
+   - Observe the serial monitor output displaying the humidity readings.
 
 #### Applications
 
-- **Indoor Climate Monitoring:** Use the system to monitor humidity levels in indoor environments.
-- **Plant Care:** Alert users when the humidity drops below optimal levels for plant growth.
-- **Sensitive Equipment Protection:** Protect sensitive equipment by monitoring and controlling humidity levels.
+- **Environmental Monitoring:** Use in projects that require monitoring and controlling humidity levels.
+- **Home Automation:** Integrate with home automation systems for climate control.
+- **Plant Monitoring:** Implement in projects related to plant health and growth monitoring.
+
+#### Notes
+
+- Ensure the DHT11 sensor is correctly connected to the Arduino Uno and powered.
+- The DHT sensor library simplifies communication with the sensor and provides reliable humidity readings.
+- Calibrate the sensor as necessary based on your specific environmental conditions.
 
 ---
 
-
-
-🌐 [projectslearner.com](https://www.projectslearner.com)  
+🌐 [ProjectsLearner](https://projectslearner.com/learn/arduino-uno-humidity-sensor)  
 📧 [projectslearner@gmail.com](mailto:projectslearner@gmail.com)  
 📸 [Instagram](https://www.instagram.com/projectslearner/)  
 📘 [Facebook](https://www.facebook.com/projectslearner)  
 ▶️ [YouTube](https://www.youtube.com/@ProjectsLearner)  
 📘 [LinkedIn](https://www.linkedin.com/in/projectslearner)
 
-## Made for you with ❣️ from ProjectsLearner
+Crafted with ❤️ by ProjectsLearner

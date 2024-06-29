@@ -1,35 +1,42 @@
-#include <SimpleDHT.h>
+/*
+    Project name : Arduino Uno Humidity Sensor (DHT11)
+    Modified Date: 29-06-2024
+    Code by : Projectslearner
+    Website : https://projectslearner.com/learn/arduino-uno-humidity-sensor
+*/
 
-SimpleDHT11 dht11;
+#include <DHT.h>
 
-int pinDHT11 = 2;
-const int buzzer = 5;
+// Define the type of sensor (DHT11)
+#define DHTPIN 2        // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11   // DHT 11
 
-void setup() { 
-  Serial.begin(115200); 
+// Initialize DHT sensor for normal 16 MHz Arduino
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  // Initialize serial communication for debugging
+  Serial.begin(9600);
+  
+  // Initialize the DHT sensor
+  dht.begin();
 }
 
 void loop() {
-  Serial.println("=================================");
-  Serial.println("Sample DHT11...");
+  // Wait a few seconds between measurements.
+  delay(2000);
 
-  byte temperature = 0;
-  byte humidity = 0;
+  // Read humidity from DHT sensor
+  float humidity = dht.readHumidity();
 
-  if (dht11.read(pinDHT11, &temperature, &humidity, NULL)) {
-    Serial.println("Read DHT11 failed.");
+  // Check if read failed and exit early (to try again)
+  if (isnan(humidity)) {
+    Serial.println("Failed to read from DHT sensor!");
     return;
   }
 
+  // Print humidity value to Serial Monitor
   Serial.print("Humidity: ");
-  Serial.print((int)humidity);
+  Serial.print(humidity);
   Serial.println(" %");
-
-  if (humidity <= 50) {
-    digitalWrite(buzzer, HIGH); // Turn on buzzer if humidity is below 50%
-  } else {
-    digitalWrite(buzzer, LOW); // Turn off buzzer if humidity is 50% or above
-  }
-
-  delay(1000); // Delay for stability
 }
